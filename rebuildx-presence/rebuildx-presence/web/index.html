@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RebuildX · Last Seen</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div id="gate" class="gate">
+    <div class="gate-card">
+      <p class="eyebrow">RebuildX PS-14</p>
+      <h1>Who is actually online?</h1>
+      <p class="lede">Pick an identity. Open a second browser window as another contact to watch presence fan out in real time — no polling.</p>
+      <div id="identities" class="identities"></div>
+    </div>
+  </div>
+
+  <div id="app" class="shell hidden">
+    <aside class="sidebar">
+      <header class="me">
+        <div class="avatar" id="me-avatar">DH</div>
+        <div>
+          <strong id="me-name">Dhara</strong>
+          <span id="me-status" class="me-status">connecting</span>
+        </div>
+      </header>
+      <div class="search">Presence roster · contacts only</div>
+      <ul id="chats" class="chats"></ul>
+    </aside>
+
+    <main class="chat">
+      <header class="chat-head">
+        <div class="avatar" id="peer-avatar">?</div>
+        <div>
+          <strong id="peer-name">Select a chat</strong>
+          <div id="peer-presence" class="presence-line">Last seen is computed, not polled</div>
+        </div>
+      </header>
+      <section id="thread" class="thread"></section>
+      <footer class="composer">
+        <input disabled placeholder="Messaging is stubbed — this challenge is presence, not chat delivery" />
+      </footer>
+    </main>
+
+    <aside class="lab">
+      <p class="eyebrow">Control room</p>
+      <h2>Presence lab</h2>
+      <p class="hint">These are the failure modes judges ask about.</p>
+      <div class="actions">
+        <button id="btn-dead" type="button">Phone dies (TTL miss)</button>
+        <button id="btn-air" type="button">Airplane mode (socket close)</button>
+        <button id="btn-re" type="button">Reconnect</button>
+      </div>
+      <label>Last seen visibility
+        <select id="privacy-last">
+          <option value="everyone">Everyone</option>
+          <option value="contacts" selected>Contacts</option>
+          <option value="nobody">Nobody</option>
+        </select>
+      </label>
+      <label>Online visibility
+        <select id="privacy-online">
+          <option value="everyone">Everyone</option>
+          <option value="contacts" selected>Contacts</option>
+          <option value="nobody">Nobody</option>
+        </select>
+      </label>
+      <div class="stats" id="stats"></div>
+      <h3>Sessions</h3>
+      <ul id="sessions" class="log"></ul>
+      <h3>Event log</h3>
+      <ul id="history" class="log"></ul>
+    </aside>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
